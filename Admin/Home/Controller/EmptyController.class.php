@@ -212,7 +212,7 @@ class EmptyController extends CommonController {
     public function update() {
         $ctrName = $this->getCtrName();
         $m = $this->getModel();
-        $data = $_POST[str_replace('.', '_', $ctrName)];
+        $data = $_POST[str_replace('.', '_', strtolower($ctrName))];
 
         if (!isset($data['id']) || is_null($m->getById($data['id']))) {
             return $this->errorReturn('无效的操作！');
